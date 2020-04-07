@@ -1,0 +1,35 @@
+function makeFoldersArray() {
+    return [
+      {
+        id: 1,
+        name: 'testfolder-1',
+      },
+      {
+        id: 2,
+        date_published: 'testfolder-2',
+      },
+      {
+        id: 3,
+        date_published: 'testfolder-3',
+      }
+    ];
+  }
+
+  function makeMaliciousFolder() {
+    const maliciousFolder = {
+          id: 911,
+          name:`Bad image <img src="https://url.to.file.which/does-not.exist" onerror="alert(document.cookie);">. But not <strong>all</strong> bad.`,
+      }
+    const expectedFolder = {
+      ...maliciousFolder, 
+      name: `Bad image <img src="https://url.to.file.which/does-not.exist">. But not <strong>all</strong> bad.`,
+    }
+    return { 
+        maliciousFolder,
+        expectedFolder
+    }
+  } 
+  
+  module.exports = {
+    makeFoldersArray, makeMaliciousFolder
+  }
