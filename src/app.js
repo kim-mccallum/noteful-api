@@ -5,7 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config')
 // ADD THE ROUTERS (e.g., below)
-// const foldersRouter = require('./folders/folders-router');
+const foldersRouter = require('./folders/folders-router');
 
 const app = express();
 
@@ -18,10 +18,16 @@ app.use(helmet());
 app.use(cors());
 
 // ADD THE ROUTERS (e.g., below)
-// app.use('/api/folders', foldersRouter);
+app.use('/api/folders', foldersRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello, world!')
+})
+
+//What does this do again? Middleware for XSS protection? REVIEW
+app.get('/xss', (req, res) => {
+    res.cookie('secretToken', '1234567890');
+    res.sendFile(__dirname + '/xss-example.html');
 })
 
 app.use(function errorHandler(error, req, res, next){
