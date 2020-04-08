@@ -6,11 +6,11 @@ function makeFoldersArray() {
       },
       {
         id: 2,
-        date_published: 'testfolder-2',
+        name: 'testfolder-2',
       },
       {
         id: 3,
-        date_published: 'testfolder-3',
+        name: 'testfolder-3',
       }
     ];
   }

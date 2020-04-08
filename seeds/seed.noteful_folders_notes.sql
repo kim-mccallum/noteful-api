@@ -1,5 +1,5 @@
--- INSERT INTO folders (name) VALUES
---  ('Spangley'), ('Shiny'), ('Crusty');
+INSERT INTO folders (name) VALUES
+ ('Spangley'), ('Shiny'), ('Crusty');
 
 
 INSERT INTO notes (name, content, folderId) VALUES  
