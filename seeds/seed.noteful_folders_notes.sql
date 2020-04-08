@@ -2,7 +2,7 @@ INSERT INTO folders (name) VALUES
  ('Spangley'), ('Shiny'), ('Crusty');
 
 
-INSERT INTO notes (name, content, folderId) VALUES  
+INSERT INTO notes (name, content, folderid) VALUES  
     ('Dogs', 'Cuddly, cute and often annoying!', 1),
     ('Cats', 'Aloof, Culpa enim enim nostrud aliquip duis proident', 1),
     ('Chickens', 'Feathery, Cupidatat eu mollit mollit quis sit veniam incididunt consequat occaecat aliqua sit amet et.', 2),

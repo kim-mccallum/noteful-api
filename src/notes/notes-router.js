@@ -11,7 +11,7 @@ const serializeNote = note => ({
     name: xss(note.name),
     content: xss(note.content),
     modified: note.modified,
-    folderId: note.folderid
+    folderid: note.folderid
   })
 
 notesRouter  
@@ -25,16 +25,16 @@ notesRouter
         .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-      const { name, content, folderId } = req.body;
-      const newNote = { name, content, folderId }
+      const { name, content, folderid } = req.body;
+      const newNote = { name, content, folderid }
+      console.log(newNote)
 
       for (const [key, value] of Object.entries(newNote)){
-        if (value === null)
+        if (value == null)
             return res.status(400).json({
                 error: { message: `Missing '${key}' in request body`}
             })
         }    
-      console.log(newNote)
 
       NotesService.insertNote(
           req.app.get('db'), 
@@ -83,10 +83,10 @@ notesRouter
   })
   .patch(jsonParser, (req, res, next) => {
     //   What should I do with the date modified? Should it update?
-      const { name, content, folderId, modified } = req.body;
-      const noteToUpdate = { name, content, folderId };
+      const { name, content, folderid, modified } = req.body;
+      const noteToUpdate = { name, content, folderid };
 
-      const numberOfValues = Object.entries(notesToUpdate).filter(Boolean).length
+      const numberOfValues = Object.entries(noteToUpdate).filter(Boolean).length
       if (numberOfValues === 0)
         return res.status(400).json({
             error: { message: `Request body must contain either 'text' or 'date_notesed'`}
@@ -94,7 +94,7 @@ notesRouter
       NotesService.updateNote(
           req.app.get('db'),
           req.params.id,
-          notesToUpdate
+          noteToUpdate
       )
         .then(numRowsAffected => {
             res.status(204).end()
