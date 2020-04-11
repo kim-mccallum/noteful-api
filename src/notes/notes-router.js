@@ -27,7 +27,6 @@ notesRouter
   .post(jsonParser, (req, res, next) => {
       const { name, content, folderid } = req.body;
       const newNote = { name, content, folderid }
-      console.log(newNote)
 
       for (const [key, value] of Object.entries(newNote)){
         if (value == null)
@@ -41,7 +40,6 @@ notesRouter
           newNote
       )
         .then(notes => {
-            console.log(notes)
             res
                 .status(201)
                 .location(path.posix.join(req.originalUrl, `/${notes.id}`))

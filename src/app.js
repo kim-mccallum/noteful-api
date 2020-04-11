@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
     res.send('Hello, world!')
 })
 
-//What does this do again? Middleware for XSS protection? REVIEW
 app.get('/xss', (req, res) => {
     res.cookie('secretToken', '1234567890');
     res.sendFile(__dirname + '/xss-example.html');
@@ -36,7 +35,6 @@ app.use(function errorHandler(error, req, res, next){
     if (NODE_ENV === 'production'){
         response = { error: { message: 'server error' } }
     } else {
-        console.log(error)
         response = { message: error.message, error }
     }
     res.status(500).json(response)
