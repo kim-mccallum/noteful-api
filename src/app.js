@@ -40,6 +40,5 @@ app.use(function errorHandler(error, req, res, next){
     res.status(500).json(response)
 })
 
-console.log('testing... why will this not work???!!!!!')
 
 module.exports = app;
