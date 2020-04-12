@@ -40,5 +40,5 @@ app.use(function errorHandler(error, req, res, next){
     res.status(500).json(response)
 })
 
-console.log('small change')
+console.log('small changer')
 module.exports = app;
