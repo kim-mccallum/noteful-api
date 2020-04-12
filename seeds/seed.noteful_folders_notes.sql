@@ -9,7 +9,7 @@ INSERT INTO notes (name, content, folderid) VALUES
     ('People', 'Qui minim sunt sit qui voluptate officia nisi commodo non velit enim consectetur.',2),
     ('Robots', 'Pariatur cupidatat deserunt labore adipisicing cupidatat dolore qui minim laboris incididunt elit id anim sunt.', 3),
     ('Cindy Lauper', 'Likely a robot. Ad proident nostrud excepteur ea velit veniam do dolore sint est nisi nisi nulla elit.', 3), 
-    ('Ponies', 'Et cupidatat commodo ea aliquip officia mollit sit dolor consectetur ea exercitation.', 1)
+    ('Ponies', 'Et cupidatat commodo ea aliquip officia mollit sit dolor consectetur ea exercitation.', 1);
 
 
 
